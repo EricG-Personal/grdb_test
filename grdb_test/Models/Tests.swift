@@ -90,7 +90,7 @@ struct Tests
     //
     // A publisher that tracks changes in the Hall of Fame
     //
-    func allTheTestsPublisher( maxPlayerCount: Int) -> DatabasePublishers.Value<AllTheTests>
+    func allTheTestsPublisher() -> DatabasePublishers.Value<AllTheTests>
     {
         ValueObservation
             .tracking(value:

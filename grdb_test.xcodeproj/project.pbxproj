@@ -19,6 +19,8 @@
 		676BFC252357EAF400CDDB25 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC242357EAF400CDDB25 /* AppDatabase.swift */; };
 		676BFC272357EB0C00CDDB25 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC262357EB0C00CDDB25 /* Tests.swift */; };
 		676BFC292357EB1500CDDB25 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC282357EB1500CDDB25 /* Test.swift */; };
+		676BFC2C2357F40300CDDB25 /* AllTheTestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC2B2357F40300CDDB25 /* AllTheTestsModel.swift */; };
+		676BFC2E2357F4DC00CDDB25 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC2D2357F4DC00CDDB25 /* World.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		676BFC242357EAF400CDDB25 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		676BFC262357EB0C00CDDB25 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		676BFC282357EB1500CDDB25 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		676BFC2B2357F40300CDDB25 /* AllTheTestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTheTestsModel.swift; sourceTree = "<group>"; };
+		676BFC2D2357F4DC00CDDB25 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +113,12 @@
 			children = (
 				676BFBF02357E87F00CDDB25 /* AppDelegate.swift */,
 				676BFBF22357E87F00CDDB25 /* SceneDelegate.swift */,
+				676BFC2D2357F4DC00CDDB25 /* World.swift */,
+				676BFC2A2357F06C00CDDB25 /* UI */,
+				676BFC232357EAD800CDDB25 /* Models */,
 				676BFBF62357E88000CDDB25 /* Assets.xcassets */,
 				676BFBFB2357E88000CDDB25 /* LaunchScreen.storyboard */,
 				676BFBFE2357E88000CDDB25 /* Info.plist */,
-				676BFC2A2357F06C00CDDB25 /* UI */,
-				676BFC232357EAD800CDDB25 /* Models */,
 				676BFBF82357E88000CDDB25 /* Preview Content */,
 			);
 			path = grdb_test;
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				676BFBF42357E87F00CDDB25 /* ContentView.swift */,
+				676BFC2B2357F40300CDDB25 /* AllTheTestsModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -304,7 +310,9 @@
 				676BFC272357EB0C00CDDB25 /* Tests.swift in Sources */,
 				676BFBF32357E87F00CDDB25 /* SceneDelegate.swift in Sources */,
 				676BFC252357EAF400CDDB25 /* AppDatabase.swift in Sources */,
+				676BFC2C2357F40300CDDB25 /* AllTheTestsModel.swift in Sources */,
 				676BFBF52357E87F00CDDB25 /* ContentView.swift in Sources */,
+				676BFC2E2357F4DC00CDDB25 /* World.swift in Sources */,
 				676BFC292357EB1500CDDB25 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
