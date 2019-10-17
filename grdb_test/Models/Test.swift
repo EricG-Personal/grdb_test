@@ -18,7 +18,7 @@ struct Test
 // Turn Player into a Codable Record.
 // See https://github.com/groue/GRDB.swift/blob/master/README.md#records
 //
-extension Test: Codable, FetchableRecord, MutablePersistableRecord
+extension Test: Codable, FetchableRecord, MutablePersistableRecord, Identifiable
 {
     //
     // Define database columns from CodingKeys

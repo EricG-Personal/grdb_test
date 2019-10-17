@@ -15,12 +15,13 @@
 		676BFBFD2357E88000CDDB25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 676BFBFB2357E88000CDDB25 /* LaunchScreen.storyboard */; };
 		676BFC082357E88000CDDB25 /* grdb_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC072357E88000CDDB25 /* grdb_testTests.swift */; };
 		676BFC132357E88100CDDB25 /* grdb_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC122357E88100CDDB25 /* grdb_testUITests.swift */; };
-		676BFC222357E9A700CDDB25 /* GRDBCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 676BFC212357E9A700CDDB25 /* GRDBCombine */; };
 		676BFC252357EAF400CDDB25 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC242357EAF400CDDB25 /* AppDatabase.swift */; };
 		676BFC272357EB0C00CDDB25 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC262357EB0C00CDDB25 /* Tests.swift */; };
 		676BFC292357EB1500CDDB25 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC282357EB1500CDDB25 /* Test.swift */; };
 		676BFC2C2357F40300CDDB25 /* AllTheTestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC2B2357F40300CDDB25 /* AllTheTestsModel.swift */; };
 		676BFC2E2357F4DC00CDDB25 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BFC2D2357F4DC00CDDB25 /* World.swift */; };
+		676BFC342358035600CDDB25 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 676BFC332358035600CDDB25 /* GRDB */; };
+		676BFC372358037900CDDB25 /* GRDBCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 676BFC362358037900CDDB25 /* GRDBCombine */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				676BFC222357E9A700CDDB25 /* GRDBCombine in Frameworks */,
+				676BFC342358035600CDDB25 /* GRDB in Frameworks */,
+				676BFC372358037900CDDB25 /* GRDBCombine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +188,8 @@
 			);
 			name = grdb_test;
 			packageProductDependencies = (
-				676BFC212357E9A700CDDB25 /* GRDBCombine */,
+				676BFC332358035600CDDB25 /* GRDB */,
+				676BFC362358037900CDDB25 /* GRDBCombine */,
 			);
 			productName = grdb_test;
 			productReference = 676BFBED2357E87F00CDDB25 /* grdb_test.app */;
@@ -261,7 +264,9 @@
 			);
 			mainGroup = 676BFBE42357E87F00CDDB25;
 			packageReferences = (
-				676BFC202357E9A700CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */,
+				676BFC322358035600CDDB25 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				676BFC352358037900CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */,
+				676BFC382358042400CDDB25 /* XCRemoteSwiftPackageReference "CSQLite" */,
 			);
 			productRefGroup = 676BFBEE2357E87F00CDDB25 /* Products */;
 			projectDirPath = "";
@@ -640,7 +645,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		676BFC202357E9A700CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */ = {
+		676BFC322358035600CDDB25 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
+		676BFC352358037900CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/groue/GRDBCombine.git";
 			requirement = {
@@ -648,12 +661,25 @@
 				kind = branch;
 			};
 		};
+		676BFC382358042400CDDB25 /* XCRemoteSwiftPackageReference "CSQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/CSQLite.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		676BFC212357E9A700CDDB25 /* GRDBCombine */ = {
+		676BFC332358035600CDDB25 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 676BFC202357E9A700CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */;
+			package = 676BFC322358035600CDDB25 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		676BFC362358037900CDDB25 /* GRDBCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 676BFC352358037900CDDB25 /* XCRemoteSwiftPackageReference "GRDBCombine" */;
 			productName = GRDBCombine;
 		};
 /* End XCSwiftPackageProductDependency section */

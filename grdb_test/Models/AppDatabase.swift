@@ -51,13 +51,13 @@ struct AppDatabase
                         // Sort player names in a localized case insensitive fashion by default
                         // See https://github.com/groue/GRDB.swift/blob/master/README.md#unicode
                         //
-                        t.column("name", .text).notNull().collate( .localizedCaseInsensitiveCompare )
+                        t.column("name", .text).notNull()
                 }
         }
         
         migrator.registerMigration("fixtures") { db in
             // Populate the players table with random data
-            for _ in 0..<8
+            for _ in 0..<15
             {
                 var test = Test( id: nil, name: Test.randomName() )
                 try test.insert( db )

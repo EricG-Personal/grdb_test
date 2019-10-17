@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View
 {
-//    @ObservedObject var viewModel: TestModel
+    @ObservedObject var viewModel: AllTheTestsModel
     
     var body: some View
     {
@@ -18,12 +18,12 @@ struct ContentView: View
         {
             Text( "All Items" )
             
-//            List()
-//            {
-//
-//            }
+            List( viewModel.bestTests )
+            {
+                TestRow( test: $0 )
+            }
             
-            Text( "Unique Items Items" )
+            Text( "Unique Items" )
 
 //            List()
 //            {
@@ -33,8 +33,20 @@ struct ContentView: View
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+struct TestRow: View
+{
+    var test: Test
+    
+    var body: some View
+    {
+        Text( test.name )
     }
 }
+
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView( viewModel: AllTheTestsModel() )
+//    }
+//}

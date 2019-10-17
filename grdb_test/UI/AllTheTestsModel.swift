@@ -6,7 +6,7 @@ import SwiftUI
 // A view controller that uses a @DatabasePublished property wrapper, and
 // feeds both AllTheTestsViewController, and the SwiftUI AllTheTestsView.
 //
-class HallOfFameViewModel
+class AllTheTestsModel
 {
     //
     // @DatabasePublished automatically updates the allTheTests
@@ -52,7 +52,7 @@ class HallOfFameViewModel
 
 // MARK: - SwiftUI Support
 
-extension HallOfFameViewModel: ObservableObject
+extension AllTheTestsModel: ObservableObject
 {
     var objectWillChange: PassthroughSubject<Void, Never>
     {
