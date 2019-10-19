@@ -18,6 +18,9 @@ class AllTheTestsModel
     @DatabasePublished( Current.tests().allTheTestsPublisher() )
     private var allTheTests: Result<Tests.AllTheTests, Error>
     
+    @DatabasePublished( Current.tests().allTheUniqueTestsPublisher() )
+    private var allTheUniqueTests: Result<[Test], Error>
+    
     // MARK: - Publishers
     
     /// A publisher for the best players
@@ -37,6 +40,18 @@ class AllTheTestsModel
         do
         {
             return try allTheTests.get().bestTests
+        }
+        catch
+        {
+            return Self.errorBestTests
+        }
+    }
+    
+    var uniqueTests: [Test]
+    {
+        do
+        {
+            return try allTheUniqueTests.get()
         }
         catch
         {

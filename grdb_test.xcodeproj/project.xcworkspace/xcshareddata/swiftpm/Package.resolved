@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "CSQLite",
-        "repositoryURL": "https://github.com/groue/CSQLite.git",
-        "state": {
-          "branch": null,
-          "revision": "3a405d0ebd8bf07d4c41a8b05a203e4d03415b5b",
-          "version": "0.3.0"
-        }
-      },
-      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
@@ -23,9 +14,9 @@
         "package": "GRDBCombine",
         "repositoryURL": "https://github.com/groue/GRDBCombine.git",
         "state": {
-          "branch": "master",
-          "revision": "a002d9ef4723f80a3c986e5373a643e3bf51aed8",
-          "version": null
+          "branch": null,
+          "revision": "de48628cff801040272c0b3717b09de1458a79ad",
+          "version": "0.5.0"
         }
       }
     ]

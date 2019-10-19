@@ -103,6 +103,20 @@ struct Tests
             .publisher( in: database )
     }
     
+    
+    func allTheUniqueTestsPublisher() -> DatabasePublishers.Value<[Test]>
+    {
+        ValueObservation
+            .tracking(value:
+            {
+                db in
+                    let uniqueTests = try Test.fetchAll( db, sql: "SELECT MIN( id ) as id, name FROM test GROUP BY name" )
+                    return uniqueTests
+            })
+            .publisher( in: database )
+    }
+    
+    
     //
     // A publisher that tracks changes in the number of players
     //

@@ -25,10 +25,10 @@ struct ContentView: View
             
             Text( "Unique Items" )
 
-//            List()
-//            {
-//
-//            }
+            List( viewModel.uniqueTests )
+            {
+                Text( $0.name )
+            }
         }
     }
 }
