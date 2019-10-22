@@ -2,6 +2,8 @@ import Combine
 import GRDB
 import GRDBCombine
 import Dispatch
+import os
+
 
 //
 // Players is responsible for high-level operations on the players database.
@@ -32,7 +34,7 @@ struct Tests
                 if try Test.fetchCount( db ) == 0
                 {
                     // Insert new random players
-                    for _ in 0..<8
+                    for _ in 0..<5
                     {
                         var test = Test(id: nil, name: Test.randomName() )
                         try test.insert( db )
@@ -60,6 +62,20 @@ struct Tests
         }
     }
     
+    
+    
+    func insert_name( name: String ) throws
+    {
+        try database.write
+        {
+            db in
+                var test = Test(id: nil, name: name )
+                try test.insert( db )
+        }
+    }
+    
+    
+    
     func stressTest()
     {
         for _ in 0..<50
@@ -76,29 +92,18 @@ struct Tests
     //
     // A Hole of Fame
     //
-    struct AllTheTests
-    {
-        //
-        // Total number of players
-        //
-        var testCount: Int
-        
-        /// The best ones
-        var bestTests: [Test]
-    }
     
     //
     // A publisher that tracks changes in the Hall of Fame
     //
-    func allTheTestsPublisher() -> DatabasePublishers.Value<AllTheTests>
+    func allTheTestsPublisher() -> DatabasePublishers.Value<[Test]>
     {
         ValueObservation
             .tracking(value:
             {
                 db in
-                    let testCount = try Test.fetchCount( db )
                     let bestTests = try Test.fetchAll( db )
-                    return AllTheTests( testCount: testCount, bestTests: bestTests )
+                    return bestTests
             })
             .publisher( in: database )
     }
@@ -110,20 +115,34 @@ struct Tests
             .tracking(value:
             {
                 db in
-                    let uniqueTests = try Test.fetchAll( db, sql: "SELECT MIN( id ) as id, name FROM test GROUP BY name" )
-                    return uniqueTests
+                    let bestTests = try Test.fetchAll( db )
+                    return bestTests
             })
-            .publisher( in: database )
-    }
-    
-    
-    //
-    // A publisher that tracks changes in the number of players
-    //
-    func playerCountPublisher() -> DatabasePublishers.Value<Int>
-    {
-        ValueObservation
-            .tracking( value: Test.fetchCount )
+            .map { (theTests: [Test]) -> [Test] in
+                
+                var uniqueTests: [Test] = []
+
+                for aTest in theTests
+                {
+                    var found = false
+                    
+                    for uniqueTest in uniqueTests
+                    {
+                        if uniqueTest.name == aTest.name
+                        {
+                            found = true
+                            break
+                        }
+                    }
+                    
+                    if found == false
+                    {
+                        uniqueTests.append( aTest )
+                    }
+                }
+                
+                return uniqueTests                                
+            }
             .publisher( in: database )
     }
 }

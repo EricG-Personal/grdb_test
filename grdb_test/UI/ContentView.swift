@@ -7,16 +7,28 @@
 //
 
 import SwiftUI
+import os
 
 struct ContentView: View
 {
     @ObservedObject var viewModel: AllTheTestsModel
     
+    @State private var name: String = ""
+    
     var body: some View
     {
         VStack
         {
-            Text( "All Items" )
+            TextField( "new name", text: $name )
+
+            Button( action: {
+                os_log( "%@", self.name )
+                try! Current.tests().insert_name( name: self.name )
+            } ) {
+                Text( "Add Name" )
+            }
+            
+            Text( "All Items" ).padding( .top )
             
             List( viewModel.bestTests )
             {
@@ -29,7 +41,7 @@ struct ContentView: View
             {
                 Text( $0.name )
             }
-        }
+        }.padding()
     }
 }
 

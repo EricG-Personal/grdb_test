@@ -16,21 +16,10 @@ class AllTheTestsModel
     // eventually fail.
     //
     @DatabasePublished( Current.tests().allTheTestsPublisher() )
-    private var allTheTests: Result<Tests.AllTheTests, Error>
+    private var allTheTests: Result<[Test], Error>
     
     @DatabasePublished( Current.tests().allTheUniqueTestsPublisher() )
     private var allTheUniqueTests: Result<[Test], Error>
-    
-    // MARK: - Publishers
-    
-    /// A publisher for the best players
-    var bestTestsPublisher: AnyPublisher<[Test], Never>
-    {
-        $allTheTests
-            .map { $0.bestTests }
-            .replaceError(with: Self.errorBestTests)
-            .eraseToAnyPublisher()
-    }
     
     // MARK: - Current Values
     
@@ -39,7 +28,7 @@ class AllTheTestsModel
     {
         do
         {
-            return try allTheTests.get().bestTests
+            return try allTheTests.get()
         }
         catch
         {

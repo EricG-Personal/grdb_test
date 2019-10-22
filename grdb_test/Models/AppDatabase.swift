@@ -57,7 +57,7 @@ struct AppDatabase
         
         migrator.registerMigration("fixtures") { db in
             // Populate the players table with random data
-            for _ in 0..<15
+            for _ in 0..<5
             {
                 var test = Test( id: nil, name: Test.randomName() )
                 try test.insert( db )

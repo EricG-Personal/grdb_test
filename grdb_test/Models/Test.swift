@@ -56,7 +56,7 @@ extension DerivableRequest where RowDecoder == Test
 
 extension Test
 {
-    private static let names = [ "Arthur", "Anita", "Barbara", "Bernard", "Chiara", "David" ]
+    private static let names = [ "Arthur", "Anita", "Barbara" ]
     
     static func randomName() -> String
     {
